@@ -5,7 +5,7 @@ const app = express()
 
 const fs = require('fs')
 let bugsnag = require("bugsnag")
-let utils = require('./utils.js')
+let receivedMessage = require('./utils.js')
 bugsnag.register("c0788fc5ba05eab7756c33f96f8f1912")
 app.use(bugsnag.requestHandler)
 app.use(bugsnag.errorHandler)
@@ -51,7 +51,7 @@ app.post('/webhook', (req, res) => {
                 // Iterate over each messaging event
                 pageEntry.messaging.forEach((messagingEvent) => {
                     if (messagingEvent.message) {
-                        utils.receivedMessage(messagingEvent)
+                        receivedMessage(messagingEvent)
                     } else {
                         let dataToAppend = "Webhook received unknown messagingEvent: " + messagingEvent
                         fs.appendFile('fb.log', dataToAppend, (err) => {
