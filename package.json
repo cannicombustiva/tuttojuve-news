@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bugsnag": "^1.7.0",
     "express": "^4.14.0",
     "feed-read": "0.0.1"
   }
