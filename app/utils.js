@@ -1,6 +1,7 @@
 'use strict'
 
 const fs = require('fs')
+const request = require('request')
 
 let receivedMessage = (event) => {
   let senderID = event.sender.id;
@@ -70,7 +71,7 @@ let callSendAPI = (messageData) => {
 
       let dataToAppend = "Unable to send message."
       fs.appendFile('fb.log', dataToAppend, (err) => {
-    
+
       })
       console.error("Unable to send message.")
       console.error(response)

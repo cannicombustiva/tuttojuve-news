@@ -8,7 +8,14 @@ let bugsnag = require("bugsnag")
 let utils = require('./utils.js')
 bugsnag.register("c0788fc5ba05eab7756c33f96f8f1912")
 app.use(bugsnag.requestHandler)
-app.use(bugsnag.errorHandler);
+app.use(bugsnag.errorHandler)
+
+
+const bodyParser = require('body-parser')
+// Process application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}))
+// Process application/json
+app.use(bodyParser.json())
 
 
 
